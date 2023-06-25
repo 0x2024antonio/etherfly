@@ -1,18 +1,21 @@
 import { Flex, Heading } from "@chakra-ui/react";
-import { FormControl, FormLabel } from "@chakra-ui/react";
+import MyPolicyContent from "./MyPolicyContent";
+
+import { useAccount } from "wagmi";
 
 const MyPolicy = () => {
+  const { address, isConnected } = useAccount();
+  console.log(address);
+
   return (
     <Flex flexDirection="column" gap="10">
       <Heading size="xl"> My policy </Heading>
 
-      <Flex flexDirection="column">
-        <FormLabel>Policy Id</FormLabel>
-        <p>test test test</p>
+      {!isConnected && (
+        <Heading size="md"> Connect to your wallet first</Heading>
+      )}
 
-        <FormLabel>Insurance statement</FormLabel>
-        <p>test test test</p>
-      </Flex>
+      {isConnected && MyPolicyContent(address)}
     </Flex>
   );
 };

@@ -29,7 +29,7 @@ const NavBar = () => {
 
       <Box ml="2" mr="2">
         <Heading size="md">
-          <Link href="view">My Policy</Link>
+          <Link href="file">File claims</Link>
         </Heading>
       </Box>
 

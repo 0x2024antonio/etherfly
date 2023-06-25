@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import BuyInsuranceButton from "./BuyInsuranceButton";
-import MyPolicy from "./MyPolicy";
+import FileCliamButton from "./FileClaimButton";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const Main = () => {
@@ -14,8 +14,8 @@ const Main = () => {
       element: <BuyInsuranceButton />,
     },
     {
-      path: "view",
-      element: <MyPolicy />,
+      path: "file",
+      element: <FileCliamButton />,
     },
   ]);
 
