@@ -2,19 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { ChakraProvider } from "@chakra-ui/react";
 import "@rainbow-me/rainbowkit/styles.css";
-
 import {
   getDefaultWallets,
-  connectorsForWallets,
   RainbowKitProvider,
+  connectorsForWallets,
+  //argentWallet,
+  //trustWallet,
+  //ledgerWallet,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import {
   // mainnet, polygon, optimism, arbitrum,
   // ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   goerli,
+  //sepolia,
   polygonMumbai,
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
@@ -56,9 +59,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <WagmiConfig config={wagmiConfig}>
     <RainbowKitProvider chains={chains}>
-      <React.StrictMode>
+      <ChakraProvider>
         <App />
-      </React.StrictMode>
+      </ChakraProvider>
     </RainbowKitProvider>
   </WagmiConfig>
 );
