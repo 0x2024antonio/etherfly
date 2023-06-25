@@ -11,11 +11,34 @@ import {
 const BuyInsuranceButton = () => {
   const [flightNumber, setFlightNumber] = useState("");
   const [departureDate, setDepartureDate] = useState("");
+  const [insuranceStatement, setInsuranceStatement] = useState("");
 
-  const buyInsurance = (event) => {
+  const [previewed, setPreviewed] = useState(false);
+  const [approved, setApproved] = useState(false);
+
+  const generateInsuranceStatement = () => {
     let s = `${flightNumber} departed on ${departureDate} arrived with a delay more than 3 hours`;
-    console.log(s);
+    setInsuranceStatement(s);
   };
+
+  const handleFlightNumberChange = (event) => {
+    setFlightNumber(event.target.value);
+  };
+
+  const handleDepartureDateChange = (event) => {
+    setDepartureDate(event.target.value);
+  };
+
+  const handlePreviewClick = (event) => {
+    setPreviewed(true);
+    generateInsuranceStatement();
+  };
+
+  const handleApproveClick = (event) => {
+    setApproved(true);
+  };
+
+  const handleBuyClick = (event) => {};
 
   return (
     <Flex flexDirection="column" gap="10">
@@ -25,7 +48,7 @@ const BuyInsuranceButton = () => {
         <FormLabel>Fligt number</FormLabel>
         <Input
           placeholder="Flight number"
-          onChange={(e) => setFlightNumber(e.target.value)}
+          onChange={handleFlightNumberChange}
         />
       </FormControl>
 
@@ -33,11 +56,19 @@ const BuyInsuranceButton = () => {
         <FormLabel>Departure date</FormLabel>
         <Input
           placeholder="Departure date"
-          onChange={(e) => setDepartureDate(e.target.value)}
+          onChange={handleDepartureDateChange}
         />
       </FormControl>
 
-      <Button onClick={buyInsurance}>Buy</Button>
+      <FormControl>
+        <FormLabel>Insurance statement</FormLabel>
+        <p>{`${insuranceStatement}`}</p>
+        <p disabled={true} value={insuranceStatement}></p>
+      </FormControl>
+
+      <Button onClick={handlePreviewClick}>Preview</Button>
+      {previewed && <Button onClick={handleApproveClick}>Approve</Button>}
+      {approved && <Button onClick={handleBuyClick}>Buy</Button>}
     </Flex>
   );
 };
