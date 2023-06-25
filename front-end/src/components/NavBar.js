@@ -10,7 +10,9 @@ import {
   Spacer,
   useColorMode,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
+
 const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
@@ -20,11 +22,15 @@ const NavBar = () => {
       </Box>
 
       <Box ml="2" mr="2">
-        <Heading size="md"> Buy Insurance </Heading>
+        <Heading size="md">
+          <Link href="buy">Buy Insurance</Link>
+        </Heading>
       </Box>
 
       <Box ml="2" mr="2">
-        <Heading size="md"> My Policy </Heading>
+        <Heading size="md">
+          <Link href="view">My Policy</Link>
+        </Heading>
       </Box>
 
       <Spacer />
