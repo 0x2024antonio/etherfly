@@ -12,7 +12,7 @@ const polygonscanApiKey = process.env.POLYGONSCAN_API_KEY;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.18",
+  solidity: "0.8.16",
   networks: {
     // View the networks that are pre-configured.
     // If the network you are looking for is not here you can add new network settings
