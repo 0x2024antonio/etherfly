@@ -15,9 +15,18 @@ const NavBar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Flex alignItems="Center" bg={useColorModeValue("gray.100", "gray.900")}>
-      <Box ml="2">
+      <Box ml="2" mr="10">
         <Heading size="md"> Etherfly </Heading>
       </Box>
+
+      <Box ml="2" mr="2">
+        <Heading size="md"> Buy Insurance </Heading>
+      </Box>
+
+      <Box ml="2" mr="2">
+        <Heading size="md"> My Policy </Heading>
+      </Box>
+
       <Spacer />
       <ButtonGroup m="2">
         <ConnectButton />

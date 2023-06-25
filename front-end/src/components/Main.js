@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import BuyInsuranceButton from "./BuyInsuranceButton";
+import MyPolicy from "./MyPolicy";
 
 const Main = () => {
   return (
