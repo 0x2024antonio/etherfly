@@ -18,13 +18,13 @@ import {
   // ...(process.env.REACT_APP_ENABLE_TESTNETS === 'true' ? [goerli] : []),
   goerli,
   //sepolia,
-  polygonMumbai,
+  //polygonMumbai,
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, publicClient } = configureChains(
-  [goerli, polygonMumbai],
+  [goerli],
   [
     alchemyProvider({ apiKey: process.env.REACT_APP_ALCHEMY_ID }),
     publicProvider(),
